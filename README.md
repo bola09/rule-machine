@@ -43,12 +43,12 @@ rul =[
         name: 'Test2',
         when:[
             'and',
-            {id:2, val:{$gt:10}}
+            {id:2, val:{$gt:20}}
         ]
     },{
         name: 'Test3',
         when:[
-            'and',
+            'or',
             {id:2, val:{$gt:10}},
             {id:5, lastVal: {$gte:50} }
         ]
@@ -64,8 +64,9 @@ rule.addFact({'id':3,'val':30});
 rule.addFact({'id':4,'val':40});
 rule.addFact({'id':5,'val':50}, false); // add fact and NOT check rules after add
 
+rule.modFact({'val':125}, {'id':2}); // modify fact where id=2 and set val=125
 
-
+rule.modFact({'lastVal':60}, {'id':5}); //modify fact where id=5 and add new property lastVal=60
 
 
 ```
