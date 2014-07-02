@@ -4,7 +4,11 @@ Rules Engine for Node.JS
 
 Installation
 ============
+Using npm:
 
+```bash
+$ npm install rule-machine
+```
 
 Basic Usage
 ===========
