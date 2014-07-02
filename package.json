@@ -1,7 +1,7 @@
 {
   "name": "rule-machine",
-  "version": "0.0.3",
-  "description": "Rule Engine for Node.JS ",
+  "version": "0.0.4",
+  "description": "Rules Engine for Node.JS ",
   "main": "rule-machine.js",
   "scripts": {
     "test": "test.js"
@@ -17,10 +17,10 @@
   "keywords": [
     "rule",
     "rules",
-    "lodash",
-    "object",
     "query",
     "rule-machine",
+    "rule-engine",
+    "rules-engine",
     "engine"
   ],
   "author": "efa2000",
