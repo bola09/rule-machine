@@ -14,7 +14,7 @@ Basic Usage
 ===========
 The following are some basic examples:
 ```js
-var rm = require('rule-machine');
+var rm = require('./rule-machine.js');
 var rule = new rm({
     onlyNewFire : true // Fired only new events (default: true)
 });
@@ -49,7 +49,7 @@ rul =[
         name: 'Test3',
         when:[
             'or',
-            {id:2, val:{$gt:10}},
+            {id:4, val:{$lt:10}},
             {id:5, lastVal: {$gte:50} }
         ]
     }
@@ -59,7 +59,7 @@ rule.addRule(rul); // Add array of rules
 
 // add other facts
 rule.addFact({'id':1,'val':10}, true); // add fact and check rules after add
-rule.addFact({'id':2,'val':20});       // it same 
+rule.addFact({'id':2,'val':2});       // it same 
 rule.addFact({'id':3,'val':30});
 rule.addFact({'id':4,'val':40});
 rule.addFact({'id':5,'val':50}, false); // add fact and NOT check rules after add
@@ -67,6 +67,5 @@ rule.addFact({'id':5,'val':50}, false); // add fact and NOT check rules after ad
 rule.modFact({'val':125}, {'id':2}); // modify fact where id=2 and set val=125
 
 rule.modFact({'lastVal':60}, {'id':5}); //modify fact where id=5 and add new property lastVal=60
-
 
 ```
