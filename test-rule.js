@@ -1,8 +1,4 @@
-var log4js = require('log4js');
-var logger = log4js.getLogger();
-//var _ = require('lodash');
-//require("underscore-query")(_);
-var fire = require('./rule-machine/rule-machine.js');
+var fire = require('./rule-machine.js');
 
 var rule = new fire({
     onlyNewFire : true
@@ -19,7 +15,15 @@ rule.addFact({'id':3,'val':30}, false);
 rule.addFact({'id':4,'val':40}, false);
 rule.addFact({'id':5,'val':50}, false);
 
-//console.log(rule.getFact());
+f = [
+    {'id':6,'val':60},
+    {'id':7,'val':70},
+    {'id':8,'val':80}
+];
+
+rule.addFact(f);
+
+console.log(rule.getFact());
 
 rul =[ 
     {

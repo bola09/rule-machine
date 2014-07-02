@@ -17,8 +17,17 @@ var rulemachine = function (options) {
 rulemachine.prototype = new events.EventEmitter;
 
 rulemachine.prototype.addFact = function (obj, needCheck) {
+	var self = this;
 	needCheck = typeof needCheck !== 'undefined' ? needCheck : true;
-	this.facts.push(obj);
+	if (_.isArray(obj)){
+		obj.forEach(function (el, index, array){
+			self.addFact(el, false);
+		});
+	}else if (_.isObject(obj)) {
+		this.facts.push(obj);
+	}else{
+		console.log ('ERROR ');
+	};
 	if (needCheck){
 		this.check();
 	};
