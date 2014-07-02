@@ -1,6 +1,6 @@
 {
   "name": "rule-machine",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Rules Engine for Node.JS ",
   "main": "rule-machine.js",
   "scripts": {

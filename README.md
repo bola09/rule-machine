@@ -19,7 +19,7 @@ var rule = new rm({
     onlyNewFire : true // Fired only new events (default: true)
 });
 
-rule.on('FIRE',function(fired){ //Names array of fired rules
+rule.on('FIRE',function(fired){ //Name of fired rule
     console.log(fired);
 });
 
@@ -38,7 +38,8 @@ rul =[
             'and',
             {id:1, val:{$gte:10}},
             {id:3, val:30}
-        ]
+        ],
+        callback: function(name){console.log('Callback for rule '+ name);}
     },{
         name: 'Test2',
         when:[

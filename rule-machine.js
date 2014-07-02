@@ -11,7 +11,6 @@ var rulemachine = function (options) {
  		this.rules = [];
  		this.fired = [];
  		this.onlyNewFire = options.onlyNewFire;
-
 };
 
 rulemachine.prototype = new events.EventEmitter;
@@ -105,21 +104,23 @@ rulemachine.prototype.check = function() {
 	this.rules.forEach(function (el, index, array){
 		if (self.checkRule(el.when)){
 			curFired.push(el.name);
+			if (self.onlyNewFire){
+				var newfire = _.difference([el.name], self.fired)
+				if (newfire.length>0){
+					self.emit('FIRE', el.name);
+					if (_.isFunction(el.callback)){
+						el.callback(newfire[0]);
+					};
+				};
+			}else{
+				self.emit('FIRE', el.name);
+				if (_.isFunction(el.callback)){
+					el.callback(el.name);
+				};
+			};
 		};
 	});
-	if (curFired.length>0){
-		if (self.onlyNewFire){
-			var fireToEmit = _.difference(curFired, self.fired);
-			if (fireToEmit.length>0){
-				self.emit('FIRE', fireToEmit);
-			};
-		}else{
-			self.emit('FIRE', curFired);
-		};
-		self.fired = curFired;
-	}else{
-		self.fired = [];
-	};
+	self.fired = curFired;
 };
 
 rulemachine.prototype.checkRule = function(rule) {
