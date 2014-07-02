@@ -1,0 +1,26 @@
+{
+  "name": "rule-machine",
+  "version": "0.0.1",
+  "description": "Rule Engine for Node.JS ",
+  "main": "rule-machine.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/efa2000/rule-machine.git"
+  },
+  "keywords": [
+    "rule",
+    "lodash",
+    "object",
+    "query",
+    "rule-machine",
+    "engine"
+  ],
+  "author": "efa2000",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/efa2000/rule-machine/issues"
+  }
+}
